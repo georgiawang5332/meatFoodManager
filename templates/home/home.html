@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="content-wrapper" style="min-height: 244.792px;">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Home Page</h1>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card card-primary card-outline">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+
+              <p class="card-text">
+                尚未註冊，請於右上角點擊申請。
+              </p>
+
+            </div>
+          </div><!-- /.card -->
+        </div>
+        <!-- /.col-md-6 -->
+
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content -->
+</div>
+{% else %}
+
+<div class="content-wrapper text-center" style="padding: 200px">
+
+    <div class="tab-content">
+      <div class="tab-empty" style="height: 453px;">
+        <h2 class="display-4">No tab selected!</h2>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% endblock %}
