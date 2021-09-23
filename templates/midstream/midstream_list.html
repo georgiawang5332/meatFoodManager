@@ -6,7 +6,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">List Page</h1>
+          <h1 class="m-0">{{title}} Page</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -24,30 +24,37 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk of the card's
-                content.
-              </p>
-
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
-            </div>
-          </div>
 
           <div class="card card-primary card-outline">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">中游公司簡介</h5>
 
               <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk of the card's
-                content.
+                {% for obj in obj_list%}
+                <!--                {{obj_list}}<br>-->
+                編號: {{obj.id}}<br>
+                <a href="{{ obj.get_absolute_url }}">公司名:{{obj.company_Name}}</a><br>
+                公司負責人: {{obj.company_principal}}<br>
+                統一編號: {{obj.uniform_numbers}}<br>
+                公司註冊狀態: {{obj.registration_status}}<br>
+                公司電話(phone): {{obj.register_phone}}<br>
+                公司地址: {{obj.registered_address}}<br>
+                公司信箱: {{obj.company_email}}<br>
+                公司網站: {{obj.company_website}}<br>
+                公司照片: {{obj.company_photos}}<br>
+                <!--                公司照片: {{obj.image.url}}<br>-->
+                公司種類別: {{obj.registration_type}}<br>
+                公司登記機關: {{obj.registration_authority}}<br>
+                公司事項紀錄: {{obj.company_notes}}<br>
+                公司登記時間: {{obj.create_date}}<br>
+                公司修改時間: {{obj.last_modified}}<br>
+              <p>
+                <a href="{% url 'midstream:update' id=obj.id %}" class="card-link">編輯</a>
+                <a href="{% url 'midstream:delete' id=obj.id %}" class="card-link">刪除</a>
               </p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
+              {% endfor %}
+              </p>
+
             </div>
           </div><!-- /.card -->
         </div>

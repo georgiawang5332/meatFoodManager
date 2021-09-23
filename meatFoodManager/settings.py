@@ -137,8 +137,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "static/dist/media_cdn")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #
-LOGIN_REDIRECT_URL = '/' #使用者成功登入以後，我們要幫他轉網址
-
+LOGIN_REDIRECT_URL = '/home/' #使用者成功登入以後，我們要幫他轉網址
 # SMTP Configuration
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'smtp.gmail.com'  #SMTP伺服器

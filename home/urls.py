@@ -10,10 +10,12 @@ urlpatterns = [
   path('profile/', views.profile, name='profile'),
   path('contact/', views.contact, name='contact'),
   path('', views.home, name='home'),
+  # path('', views.HomeView, name='home'),
 
   #   login / logout / register
   path('accounts/login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
-  path('accounts/logout/', auth_views.LogoutView.as_view(template_name='registration/logout.html'), name='logout'),
+  path('accounts/logout/', auth_views.LogoutView.as_view(template_name='registration/login.html'), name='logout'),
+
   path('accounts/register/', views.register, name='register'),
 
   # 密碼改變

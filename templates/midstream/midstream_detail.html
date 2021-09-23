@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!--  message jump -->
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <li
+    {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+<!--  message jump -->
+
+<div class="content-wrapper" style="min-height: 244.792px;">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">List Page</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">List</a></li>
+            <li class="breadcrumb-item active">List Page</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+
+              <p class="card-text">
+                {{instance.id}}<br>
+                公司名: {{instance.company_Name}}<br>
+                公司負責人: {{instance.company_principal}}<br>
+                統一編號: {{instance.uniform_numbers}}<br>
+                公司註冊狀態: {{instance.registration_status}}<br>
+                公司電話(phone): {{instance.register_phone}}<br>
+                公司地址: {{instance.registered_address}}<br>
+                公司信箱: {{instance.company_email}}<br>
+                公司網站: {{instance.company_website}}<br>
+                公司照片: {{instance.company_photos}}<br>
+                <!--                公司照片: {{obj.image.url}}<br>-->
+                公司種類別: {{instance.registration_type}}<br>
+                公司登記機關: {{instance.registration_authority}}<br>
+                公司事項紀錄: {{instance.company_notes}}<br>
+                公司登記時間: {{instance.create_date}}<br>
+                公司修改時間: {{instance.last_modified}}<br>
+              </p>
+
+              <a href="{% url 'midstream:list' %}" class="card-link">返回 List</a>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content -->
+</div>
+{% endblock %}

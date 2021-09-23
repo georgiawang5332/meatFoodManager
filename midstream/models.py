@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 
@@ -43,6 +44,9 @@ class Midstream(models.Model):  # 中游商
   company_notes = models.TextField(_('公司筆記'), blank=True)  # 公司筆記
   create_date = models.DateTimeField(_('儲存日期'), auto_now_add=True)
   last_modified = models.DateTimeField(_('最後修改日期'), auto_now=True)
+
+  def get_absolute_url(self):
+    return reverse('midstream:detail', kwargs={'id': self.id})
 
   def __str__(self):
     return self.company_Name

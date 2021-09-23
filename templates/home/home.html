@@ -28,6 +28,19 @@
               <p class="card-text">
                 尚未註冊，請於右上角點擊申請。
               </p>
+              <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit">送出</button>
+<!--                <h2>輸出: {{text}}</h2>-->
+              </form>
+
+<!--              {% for profile in profiles %}-->
+              <h1>{{ user }}</h1>
+              <p>{{user.city}}</p>
+<!--              <p>Posted by {{ post.user.get_full_name }} on {{ post.created }}</p>-->
+<!--              {% endfor %}-->
+
 
             </div>
           </div><!-- /.card -->
@@ -44,12 +57,12 @@
 
 <div class="content-wrapper text-center" style="padding: 200px">
 
-    <div class="tab-content">
-      <div class="tab-empty" style="height: 453px;">
-        <h2 class="display-4">No tab selected!</h2>
-      </div>
+  <div class="tab-content">
+    <div class="tab-empty" style="height: 453px;">
+      <h2 class="display-4">No tab selected!</h2>
     </div>
   </div>
+</div>
 {% endif %}
 
 {% endblock %}
