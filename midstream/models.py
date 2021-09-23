@@ -31,11 +31,12 @@ class Midstream(models.Model):  # 中游商
                                     help_text=_('手機，ex：0912-345-678，***直接輸入數字，不用此符號「-」'))  # 登記電話
   registered_address = models.CharField(_('登記地址'), max_length=255)  # 登記地址
   company_email = models.EmailField(
-    _('郵件信箱'),
+    _('公司郵件信箱'),
     max_length=255,
     blank=True,
     default="",
     help_text='★★★必需的。 添加有效的電子郵件地址',
+    unique=True,
   )  # 公司信箱
   company_website = models.URLField(_('公司網站'), max_length=255)  # 公司網站
   company_photos = models.ImageField(_('公司照片'), upload_to='companies', blank=True)  # 公司照片
@@ -69,11 +70,12 @@ class Midstream_person(models.Model):
   cell_phone = models.CharField(_('負責人手機'), max_length=10,
                                 help_text=_('手機，ex: 0912-123-456，***直接輸入數字，不用此符號「-」'))  # 負責人手機
   person_email = models.EmailField(
-    _('負責人信箱'),
+    _('負責人郵件信箱'),
     max_length=255,
     blank=True,
     default="",
     help_text='★★★必需的。 添加有效的電子郵件地址',
+    unique=True,
   )  # 負責人信箱
   create_date_p = models.DateTimeField(_('儲存日期'), auto_now_add=True)
   last_modified_p = models.DateTimeField(_('最後修改日期'), auto_now=True)

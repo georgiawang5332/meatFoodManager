@@ -5,10 +5,5 @@ from midstream.models import *
 class MidstreamForm(forms.ModelForm):
   class Meta:
     model = Midstream
-    # fields = [
-    #   'company_Name',
-    #   'company_principal',
-    #   'company_notes',
-    # ]
     fields = '__all__'
 
