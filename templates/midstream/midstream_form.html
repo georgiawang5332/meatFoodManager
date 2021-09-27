@@ -30,7 +30,7 @@
               <h5 class="card-title">中游公司簡介</h5>
 
               <!--              <p class="card-text">-->
-              <form method="post" enctype="multipart/form-data" action="{% url 'midstream:update' id=instance.id%}">
+              <form method="post" enctype="multipart/form-data" action="#">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <input type="submit" value="save">
