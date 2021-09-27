@@ -9,6 +9,8 @@ from midstream.forms import *
 
 # Create your views here.
 def create(request):
+  template_name = 'midstream/midstream_form.html'
+
   # basic use permissions 基本使用權限; 添加這個但是在無痕中會出現404
   if not request.user.is_staff or not request.user.is_superuser:
     raise Http404
@@ -16,8 +18,6 @@ def create(request):
   form = MidstreamForm(request.POST or None, request.FILES or None)
   if form.is_valid():
     instance = form.save(commit=False)
-    # form.cleaned_data.get("company_Name")
-    instance.user = request.user
     print(form.cleaned_data)
     instance.save()
     messages.success(request, "Success Created!!!")
@@ -28,11 +28,10 @@ def create(request):
     'form': form,
     'title': 'Create Form',
   }
-  return render(request, 'midstream/midstream_form.html', context)
-  # return HttpResponse('<h1>create</h1>')
+  return render(request, template_name, context)
 
 
-def detail(request, id):
+def detail(request, id=None):
   # ins = Midstream.objects.get(id=id)
   instance = get_object_or_404(Midstream, id=id)
   context = {
@@ -77,7 +76,7 @@ def list(request):
   try:
     queryset = paginator.page(page_number)
   except PageNotAnInteger:
-  # if page is not an integer, deliver first page.
+    # if page is not an integer, deliver first page.
     queryset = paginator.page(1)
   except EmptyPage:
     queryset = paginator.page(paginator.num_pages)
@@ -132,6 +131,7 @@ def delete(request, id=None):
   instance.delete()
   messages.success(request, "SuccessFully Deleted!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
   return redirect("midstream:list")
+  # return HttpResponse('<h1>update</h1>')
 
 # def list(request):
 #   ms_person = Midstream_person.objects.get()
