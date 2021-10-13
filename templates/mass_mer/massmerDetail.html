@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!--  message jump -->
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <li
+    {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+<!--  message jump -->
+
+<div class="content-wrapper" style="min-height: 244.792px;">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">List Page</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">List</a></li>
+            <li class="breadcrumb-item active">List Page</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+
+              <p class="card-text">
+                編號        : {{instance.id}}<br>
+                量販店負責人 : {{instance.mass_mer_principal}}<br>
+                負責人證號	 : {{instance.certificate_num_principal}}<br>
+                電話        : {{instance.telephone}}<br>
+                地址        : {{instance.address}}<br>
+              </p>
+
+              <a href="{% url 'mass_mer:stdisplay' %}" class="card-link">返回 List</a>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content -->
+</div>
+{% endblock %}

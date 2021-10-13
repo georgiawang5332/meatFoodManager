@@ -41,6 +41,7 @@ INSTALLED_APPS = [
   # 添加 project
   'home',
   'midstream',
+  'mass_mer',
   # 添加 project //
 ]
 
@@ -80,7 +81,7 @@ WSGI_APPLICATION = 'meatFoodManager.wsgi.application'
 DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'admin3',
+    'NAME': 'admin31',
     'USER': 'postgres',
     'PASSWORD': 'postgres5',
     'HOST': 'localhost',

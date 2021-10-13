@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content-wrapper" style="min-height: 244.792px;">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">{{title}} Page</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">List</a></li>
+            <li class="breadcrumb-item active">List Page</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card card-primary card-outline">
+            <div class="card-body">
+              <h5 class="card-title">中游公司簡介</h5>
+
+              <p class="card-text">
+
+                <h3>Add New Student Record</h3>
+                <hr>
+
+                <form method="POST" enctype="multipart/form-data" action="{% url 'mass_mer:stinstert' %}">
+                  {% csrf_token%}
+                  {{ form.as_p }}
+<!--                  <table border="w1">-->
+<!--                    <tr>-->
+<!--                      <td>量販店負責人</td>-->
+<!--                      <td><input type="text" placeholder="編號 限8碼" name="mass_mer_principal"></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                      <td>負責人證號</td>-->
+<!--                      <td><input type="text" placeholder="編號 限8碼" name="certificate_num_principal"></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                      <td>電話</td>-->
+<!--                      <td><input type="text" placeholder="編號 限8碼" name="telephone"></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                      <td>地址</td>-->
+<!--                      <td><input type="text" placeholder="編號 限8碼" name="address"></td>-->
+<!--                    </tr>-->
+<!--                  </table>-->
+                  <input type="submit" value="Submit"> &nbsp;&nbsp;
+                  <a href="{% url 'mass_mer:stdisplay' %}">review Student Record</a><br>
+                  {% if messages %}
+                  {% for result in messages %}
+                  <b style="color:green;">{{result}}</b>
+                  {% endfor%}
+                  {% endif %}
+
+                </form>
+              </p>
+
+            </div>
+          </div><!-- /.card -->
+
+        </div>
+        <!-- /.col-md-6 -->
+
+
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content -->
+</div>
+{% endblock %}

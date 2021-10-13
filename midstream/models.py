@@ -2,7 +2,6 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-
 # Create your models here.
 # 1. 公司
 class Midstream(models.Model):  # 中游商

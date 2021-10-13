@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="content-wrapper" style="min-height: 244.792px;">
+  <!-- Django CRUD Operations Example With Migrate Table db.sqlite3: https://www.youtube.com/watch?v=HHFqzhU_JP0-->
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
@@ -22,41 +23,56 @@
   <!-- Main content -->
   <div class="content">
     <div class="container-fluid">
+
+
+      <br>
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg">
 
           <div class="card card-primary card-outline">
             <div class="card-body">
-              <h5 class="card-title">中游公司簡介</h5>
-
+              <h5 class="card-title">量販店</h5>
               <p class="card-text">
-                {% for obj in obj_list%}
-                <!--                {{obj_list}}<br>-->
-                編號: {{obj.id}}<br>
-                公司名:<a href="{{ obj.get_absolute_url }}">{{obj.company_Name}}</a><br>
-                公司負責人: {{obj.company_principal}}<br>
-                統一編號: {{obj.uniform_numbers}}<br>
-                公司註冊狀態: {{obj.registration_status}}<br>
-                公司電話(phone): {{obj.register_phone}}<br>
-                公司地址: {{obj.registered_address}}<br>
-                公司信箱: {{obj.company_email}}<br>
-                公司網站: {{obj.company_website}}<br>
-                公司照片: {{obj.company_photos}}<br>
-                <!--                公司照片: {{obj.image.url}}<br>-->
-                公司種類別: {{obj.registration_type}}<br>
-                公司登記機關: {{obj.registration_authority}}<br>
-                公司事項紀錄: {{obj.company_notes}}<br>
-                公司登記時間: {{obj.create_date}}<br>
-                公司修改時間: {{obj.last_modified}}<br>
-                <p>
-                  <a href="{% url 'midstream:update' id=obj.id %}" class="card-link">編輯</a>
-                  <a href="{% url 'midstream:delete' id=obj.id %}" class="card-link">刪除</a>
-                </p>
-              {% endfor %}
+              <!--      {# search polls #}-->
+              <form method="GET" action="">
+<!--                <label for="">-->
+                  <input type="text" name="q" placeholder="Search posts"
+                                     value="{{ request.GET.q }}"/>
+                  <input type="submit" value="search"/>
+<!--                </label>-->
+              </form>
+              <hr>
+
+              <a href="{% url 'mass_mer:stinstert' %}"><b>新增量販店</b></a>
+              <table border="1">
+                <tr>
+                  <td>編號</td>
+                  <td>量販店負責人</td>
+                  <td>負責人證號</td>
+                  <td>電話</td>
+                  <td>地址</td>
+                  <!--                  <td></td>-->
+                </tr>
+                {% for displayst in obj_list %}
+                <tr>
+                  <td>{{displayst.id}}</td>
+                  <td><a href="{{ displayst.get_absolute_url }}">{{displayst.mass_mer_principal|truncatechars:5}}</a></td>
+                  <td>{{displayst.certificate_num_principal}}</td>
+                  <td>{{displayst.telephone}}</td>
+                  <td>{{displayst.address}}</td>
+                  <td><a href="{% url 'mass_mer:stedit' id=displayst.id %}">Edit</a></td>
+                  <td><a href="{% url 'mass_mer:stdelete' id=displayst.id%}"
+                         onclick="return confirm('Are u sure u want to del?')">Delete</a></td>
+                </tr>
+                {% endfor %}
+
+              </table>
               </p>
 
             </div>
           </div><!-- /.card -->
+
+
           <!--  pagination  -->
           <div class="pagination">
             <span class="step-links">

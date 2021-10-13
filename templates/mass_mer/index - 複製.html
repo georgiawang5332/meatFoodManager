@@ -23,40 +23,47 @@
   <div class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg">
 
           <div class="card card-primary card-outline">
             <div class="card-body">
               <h5 class="card-title">中游公司簡介</h5>
 
               <p class="card-text">
-                {% for obj in obj_list%}
-                <!--                {{obj_list}}<br>-->
-                編號: {{obj.id}}<br>
-                公司名:<a href="{{ obj.get_absolute_url }}">{{obj.company_Name}}</a><br>
-                公司負責人: {{obj.company_principal}}<br>
-                統一編號: {{obj.uniform_numbers}}<br>
-                公司註冊狀態: {{obj.registration_status}}<br>
-                公司電話(phone): {{obj.register_phone}}<br>
-                公司地址: {{obj.registered_address}}<br>
-                公司信箱: {{obj.company_email}}<br>
-                公司網站: {{obj.company_website}}<br>
-                公司照片: {{obj.company_photos}}<br>
-                <!--                公司照片: {{obj.image.url}}<br>-->
-                公司種類別: {{obj.registration_type}}<br>
-                公司登記機關: {{obj.registration_authority}}<br>
-                公司事項紀錄: {{obj.company_notes}}<br>
-                公司登記時間: {{obj.create_date}}<br>
-                公司修改時間: {{obj.last_modified}}<br>
-                <p>
-                  <a href="{% url 'midstream:update' id=obj.id %}" class="card-link">編輯</a>
-                  <a href="{% url 'midstream:delete' id=obj.id %}" class="card-link">刪除</a>
-                </p>
-              {% endfor %}
+              <h3>ADD NEW Student Record</h3>
+              <hr>
+              <a href="{% url 'mass_mer:stinstert' %}">Add Student Record</a>
+              <table border="1">
+                <tr>
+                  <td>編號</td>
+                  <td>公司名稱</td>
+                  <!--                  <td>公司負責人</td>-->
+                  <td>電子郵件</td>
+                  <td>公司電話</td>
+                  <td>公司地址</td>
+                  <td>統一編號</td>
+                  <td>地區申請編號</td>
+                </tr>
+                {% for displayst in crudst %}
+                <tr>
+                  <td>{{displayst.id}}</td>
+                  <td>{{displayst.company_name}}</td>
+                  <!--                  <td>{{displayst.company_principal}}</td>-->
+                  <td>{{displayst.mailbox}}</td>
+                  <td>{{displayst.company_phone}}</td>
+                  <td>{{displayst.address}}</td>
+                  <td>{{displayst.uniform_numbers}}</td>
+                  <td>{{displayst.regional_app_num}}</td>
+                </tr>
+                {% endfor %}
+
+              </table>
               </p>
 
             </div>
           </div><!-- /.card -->
+
+
           <!--  pagination  -->
           <div class="pagination">
             <span class="step-links">

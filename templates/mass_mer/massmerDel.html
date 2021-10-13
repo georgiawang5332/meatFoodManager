@@ -30,33 +30,56 @@
               <h5 class="card-title">中游公司簡介</h5>
 
               <p class="card-text">
-                {% for obj in obj_list%}
-                <!--                {{obj_list}}<br>-->
-                編號: {{obj.id}}<br>
-                公司名:<a href="{{ obj.get_absolute_url }}">{{obj.company_Name}}</a><br>
-                公司負責人: {{obj.company_principal}}<br>
-                統一編號: {{obj.uniform_numbers}}<br>
-                公司註冊狀態: {{obj.registration_status}}<br>
-                公司電話(phone): {{obj.register_phone}}<br>
-                公司地址: {{obj.registered_address}}<br>
-                公司信箱: {{obj.company_email}}<br>
-                公司網站: {{obj.company_website}}<br>
-                公司照片: {{obj.company_photos}}<br>
-                <!--                公司照片: {{obj.image.url}}<br>-->
-                公司種類別: {{obj.registration_type}}<br>
-                公司登記機關: {{obj.registration_authority}}<br>
-                公司事項紀錄: {{obj.company_notes}}<br>
-                公司登記時間: {{obj.create_date}}<br>
-                公司修改時間: {{obj.last_modified}}<br>
-                <p>
-                  <a href="{% url 'midstream:update' id=obj.id %}" class="card-link">編輯</a>
-                  <a href="{% url 'midstream:delete' id=obj.id %}" class="card-link">刪除</a>
-                </p>
-              {% endfor %}
+
+              <center>
+                  <h1>How to create CRUD Opeartion</h1>
+                  <h2>Django web Framework</h2>
+              <hr>
+              <table border="1">
+                <tr>
+                  <th>Student ID</th>
+                  <th>Student Name</th>
+                  <th>Email</th>
+                  <th>Address</th>
+                  <th>Mobile</th>
+                  <th>Gender</th>
+                  <th>Edit</th>
+                  <th>Del</th>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </table>
+
+              </center>
+<!--                <h3>會員資料</h3>-->
+<!--                <div class="div1">-->
+<!--                  <div class="div1-1">-->
+<!--                    <button><a href="#">列表</a></button>-->
+<!--                    <button><a href="#">新增</a></button>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <br>-->
+<!--                <table border="2">-->
+<!--                  <tr>-->
+<!--                    <td>姓名</td>-->
+<!--                    <td>生日</td>-->
+<!--                    <td>電子郵件</td>-->
+<!--                    <td>行動電話</td>-->
+<!--                    <td>編輯操作</td>-->
+<!--                  </tr>-->
+<!--                </table>-->
               </p>
 
             </div>
           </div><!-- /.card -->
+
+
+
           <!--  pagination  -->
           <div class="pagination">
             <span class="step-links">

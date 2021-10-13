@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content-wrapper" style="min-height: 244.792px;">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">{{title}} Page</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">List</a></li>
+            <li class="breadcrumb-item active">List Page</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card card-primary card-outline">
+            <div class="card-body">
+              <h5 class="card-title">中游公司簡介</h5>
+
+              <p class="card-text">
+
+                <h3>Add New Student Record</h3>
+                <hr>
+                <form method="POST" enctype="multipart/form-data" action="{% url 'mass_mer:stinstert' %}">
+                  {% csrf_token%}
+                  <table border="1">
+                    <tr>
+                      <td>公司名稱</td>
+                      <td><input type="text" placeholder="姓名 限8字" name="company_name"></td>
+                    </tr>
+<!--                    <tr>-->
+<!--                      <td>負責人</td>-->
+<!--                      <td><input type="text" placeholder="Company Principal.." name="company_principal"></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+                      <td>信箱郵件</td>
+                      <td><input type="text" placeholder="信箱 限8字" name="mailbox"></td>
+                    </tr>
+                    <tr>
+                      <td>公司電話</td>
+                      <td><input type="text" placeholder="電話 限8碼" name="company_phone"></td>
+                    </tr>
+                    <tr>
+                      <td>公司地址</td>
+                      <td><input type="text" placeholder="地址 限8字" name="address"></td>
+                    </tr>
+                    <tr>
+                      <td>統一編號</td>
+                      <td><input type="text" placeholder="統一編號 限8碼" name="uniform_numbers"></td>
+                    </tr>
+                    <tr>
+                      <td>地區申請編號</td>
+                      <td><input type="text" placeholder="編號 限8碼" name="regional_app_num"></td>
+                    </tr>
+
+                  </table>
+                  <input type="submit" value="Submit"> &nbsp;&nbsp;
+                  <a href="{% url 'mass_mer:stdisplay' %}">review Student Record</a><br>
+                  {% if messages %}
+                  {% for result in messages %}
+                  <b style="color:green;">{{result}}</b>
+                  {% endfor%}
+                  {% endif %}
+
+                </form>
+              </p>
+
+            </div>
+          </div><!-- /.card -->
+
+
+          <!--  pagination  -->
+          <div class="pagination">
+            <span class="step-links">
+              {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; fwirst</a>
+                <a href="?{{ page_request_var }}={{ page_obj.previous_page_number }}&q={{ request.GET.q }}">previous</a>
+              {% endif %}
+              <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+              </span>
+
+              {% if page_obj.has_next %}
+                <a href="?{{ page_request_var }}={{ page_obj.next_page_number }}&q={{ request.GET.q }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+            </span>
+          </div>
+          <!-- /. pagination  -->
+        </div>
+        <!-- /.col-md-6 -->
+
+
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content -->
+</div>
+{% endblock %}

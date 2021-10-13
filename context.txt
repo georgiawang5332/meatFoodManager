@@ -1,0 +1,20 @@
+學習心得筆記:
+
+針對 Django 與 python 著重點去學習，這塊 project 想發揮重點在於 ERP 上面，
+想呈現內容也是朝著這方面去思考學習，所以會運用自己所學去把 html css Django呈現畫面
+以及運用 Python的基礎去了解後台上面功能切換，這也是為我學習專案上面的一點小成績。
+
+學習重點筆記:
+1.Django CRUD Operations Example With Migrate Table db.sqlite3:
+https://www.youtube.com/watch?v=HHFqzhU_JP0
+這方面對於新增修改刪除以及python程式的撰寫指導出處。
+
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+9.
+10.

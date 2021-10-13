@@ -18,12 +18,15 @@ def create(request):
   form = MidstreamForm(request.POST or None, request.FILES or None)
   if form.is_valid():
     instance = form.save(commit=False)
-    print(form.cleaned_data)
+    # print(form.cleaned_data)
     instance.save()
     messages.success(request, "Success Created!!!")
     return HttpResponseRedirect(instance.get_absolute_url())
   else:
-    messages.error(request, "NOT Success Created!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    messages.error(request,
+                     "'NOT Successfully Save' + '<a href=''> NOT ITEM </a>' + 'Saved!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'",
+                     extra_tags='html_safe'
+                     )
   context = {
     'form': form,
     'title': 'Create Form',
@@ -107,10 +110,9 @@ def update(request, id=None):
     # message success
     messages.success(request,
                      "Successfully Save <a href='#'>ITEM </a> Saved!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+                     # "<div class="html_safe alert alert-success success" role="alert"><a href="#">Item</a> Saved</div>", #https://stackoverflow.com/questions/36899488/altering-the-default-django-messages-tag
                      extra_tags='html_safe'
                      )
-    messages.success(request, "Item New!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-    messages.success(request, "Item Whatever!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     return HttpResponseRedirect(instance.get_absolute_url())
   else:
     messages.error(request, "Not successfully Created")

@@ -68,11 +68,10 @@
             <li class="nav-item">
               <a href="{% url 'midstream:list' %}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Midstream 中游商公司</p>
+                <p>中游商公司</p>
               </a>
             </li>
             <li class="nav-item">
-<!--              <a href="{% url 'midstream:create'%}" class="nav-link">-->
               <a href="{% url 'midstream:create' %}" class="nav-link">
                 <i class="nav-icon far fa-image"></i>
                 <p>
@@ -187,62 +186,46 @@
           </ul>
         </li>
         <li class="nav-item">
+<!--若以我為中心，供應商就是我的上游，買家就是我的下游，供應商也許又有階層關係，買家也會有階層關係，必須釐清說話的人的意思-->
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-tree"></i>
             <p>
-              UI Elements
+              我不要 all
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="pages/UI/general.html" class="nav-link">
+              <a href="#" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>General</p>
+                <p>不要 1</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="pages/UI/icons.html" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Icons</p>
+                <p>不要 2</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="pages/UI/buttons.html" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Buttons</p>
+                <p>不要 3</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="pages/UI/sliders.html" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Sliders</p>
+                <p>不要 4</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="pages/UI/modals.html" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Modals & Alerts</p>
+                <p>不要 5</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="pages/UI/navbar.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Navbar & Tabs</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/UI/timeline.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Timeline</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/UI/ribbons.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Ribbons</p>
-              </a>
-            </li>
+
           </ul>
         </li>
         <li class="nav-item">
@@ -604,22 +587,46 @@
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-circle"></i>
             <p>
-              Level 1
+              下游廠商
               <i class="right fas fa-angle-left"></i>
             </p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="{% url 'mass_mer:MassMerList' %}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Level 2</p>
+                <p>攤商</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'mass_mer:FoodVendorList' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>店面</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'mass_mer:StorefrontList' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>量販店</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'mass_mer:RetailFactoryList' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>零售商(工廠)</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'mass_mer:OtherList' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>其他</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>
-                  Level 2
+                  Level 1
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -627,28 +634,10 @@
                 <li class="nav-item">
                   <a href="#" class="nav-link">
                     <i class="far fa-dot-circle nav-icon"></i>
-                    <p>Level 3</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-dot-circle nav-icon"></i>
-                    <p>Level 3</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-dot-circle nav-icon"></i>
-                    <p>Level 3</p>
+                    <p>Level 2</p>
                   </a>
                 </li>
               </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Level 2</p>
-              </a>
             </li>
           </ul>
         </li>

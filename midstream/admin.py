@@ -25,7 +25,7 @@ class MidstreamAdmin(admin.ModelAdmin):
   ordering = ('-company_email',)
 
 
-admin.site.register(Midstream, MidstreamAdmin)  # 菜單
+admin.site.register(Midstream, MidstreamAdmin)  # 中游商
 
 
 # admin.site.register(Midstream_person)  # 中游商負責人

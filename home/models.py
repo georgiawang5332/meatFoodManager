@@ -14,7 +14,7 @@ class UserProfileManager(models.Manager):
     return super(UserProfileManager, self).get_queryset().filter(city='london')
 
 class UserProfile(models.Model):
-  objects = None
+  # objects = None
   user = models.OneToOneField(User, on_delete=models.CASCADE, default='', primary_key=True, )
   description = models.TextField(max_length=100, default='')
   city = models.CharField(max_length=100, default='')
@@ -29,11 +29,11 @@ class UserProfile(models.Model):
     return self.user.username
 
 
-@receiver(post_save, sender=User)
-def create_profile(instance, created, **kwargs):
-  if created:
-    UserProfile.objects.create(user=instance)
-  instance.userprofile.save()
-
-
-post_save.connect(create_profile, sender=User)
+# @receiver(post_save, sender=User)
+# def create_profile(instance, created, **kwargs):
+#   if created:
+#     UserProfile.objects.create(user=instance)
+#   instance.userprofile.save()
+#
+#
+# post_save.connect(create_profile, sender=User)
