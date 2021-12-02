@@ -17,9 +17,22 @@ https://www.youtube.com/watch?v=HHFqzhU_JP0
 <!--          <p>請先確認/查閱是否有此帳號，因為系統判斷無此帳號，如有問題請撥打<a href="#">總機 #0036</a> 詢問，或是再次請申請帳號並且務必輸入信箱。謝謝。</p>-->
 <!--        {% endif %}-->
 4.
+看不懂:
+models.py
+
+orderitem_set
+        orderitems = self.orderitem_set.all()
+
+
 5.
 6.
 7.
 8.
 9.
 10.
+
+
+補充:
+fontawesome:
+https://fontawesome.com/v5.15/icons/ambulance?style=solid
+

@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-
+from midstream.models import *
 # Create your models here.
 
 # How to Write Your First Custom Model Manager (Django Tutorial) | Part 40

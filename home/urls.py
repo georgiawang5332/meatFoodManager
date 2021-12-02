@@ -7,6 +7,7 @@ from .views import *
 app_name = 'home'
 
 urlpatterns = [
+  path('home/', views.home, name='home'),
   path('profile/', views.profile, name='profile'),
   path('contact/', views.contact, name='contact'),
   path('', views.home, name='home'),

@@ -55,6 +55,7 @@ def list(request):
     #     'obj_list': queryset,
     #     'title': '中游公司',
     #   }
+
     # else:
     #   context = {
     #     'title': 'Title',

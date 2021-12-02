@@ -48,47 +48,98 @@
           <a href="#" class="nav-link active">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
-              我愛你
+              下游廠商
               <i class="right fas fa-angle-left"></i>
             </p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="./index.html" class="nav-link active">
+              <a href="{% url 'mass_mer:stdisplay' %}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>我愛你 v1</p>
+                <p>Mass Mer Person test</p>
               </a>
             </li>
             <li class="nav-item">
+              <a href="{% url 'mass_mer:MassMerList' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>量販店</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'mass_mer:FoodVendorList' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>攤商</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'mass_mer:StorefrontList' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>店面</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'mass_mer:RetailFactoryList' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>零售商(工廠)</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'mass_mer:OtherList' %}" class="nav-link">
+                <!--                <i class="far fa-circle nav-icon"></i>-->
+                <i class="fas fa-ambulance nav-icon"></i>
+                <p>其他</p>
+              </a>
+            </li>
+
+
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-circle"></i>
+            <p>
+              中游廠商
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
               <a href="{% url 'home:profile' %}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Profile v2</p>
+                <p>量販店</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="{% url 'midstream:list' %}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>中游商公司</p>
+                <p>攤商</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="{% url 'midstream:create' %}" class="nav-link">
                 <i class="nav-icon far fa-image"></i>
                 <p>
-                  新增中游商公司
+                  店面
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'midstream:create' %}" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                  零售商(工廠)
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'midstream:create' %}" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                  其他
                 </p>
               </a>
             </li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <a href="pages/widgets.html" class="nav-link">
-            <i class="nav-icon fas fa-th"></i>
-            <p>
-              Widgets
-              <span class="right badge badge-danger">New</span>
-            </p>
-          </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
@@ -101,193 +152,9 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="pages/layout/top-nav.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Top Navigation</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Top Navigation + Sidebar</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/layout/boxed.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Boxed</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Fixed Sidebar</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/layout/fixed-sidebar-custom.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Fixed Sidebar <small>+ Custom Area</small></p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/layout/fixed-topnav.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Fixed Navbar</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/layout/fixed-footer.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Fixed Footer</p>
-              </a>
-            </li>
-            <li class="nav-item">
               <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Collapsed Sidebar</p>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-chart-pie"></i>
-            <p>
-              Charts
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="pages/charts/chartjs.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>ChartJS</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/charts/flot.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Flot</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/charts/inline.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Inline</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/charts/uplot.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>uPlot</p>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-<!--若以我為中心，供應商就是我的上游，買家就是我的下游，供應商也許又有階層關係，買家也會有階層關係，必須釐清說話的人的意思-->
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-tree"></i>
-            <p>
-              我不要 all
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>不要 1</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/UI/icons.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>不要 2</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/UI/buttons.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>不要 3</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/UI/sliders.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>不要 4</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/UI/modals.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>不要 5</p>
-              </a>
-            </li>
-
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-edit"></i>
-            <p>
-              Forms
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="pages/forms/general.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>General Elements</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/forms/advanced.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Advanced Elements</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/forms/editors.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Editors</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/forms/validation.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Validation</p>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-table"></i>
-            <p>
-              Tables
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="pages/tables/simple.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Simple Tables</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/tables/data.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>DataTables</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/tables/jsgrid.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>jsGrid</p>
               </a>
             </li>
           </ul>
@@ -301,115 +168,6 @@
               <span class="badge badge-info right">2</span>
             </p>
           </a>
-        </li>
-
-        <li class="nav-item">
-          <a href="pages/kanban.html" class="nav-link">
-            <i class="nav-icon fas fa-columns"></i>
-            <p>
-              Kanban Board
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon far fa-envelope"></i>
-            <p>
-              Mailbox
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="pages/mailbox/mailbox.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Inbox</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/mailbox/compose.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Compose</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/mailbox/read-mail.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Read</p>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-book"></i>
-            <p>
-              Pages
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="pages/examples/invoice.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Invoice</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/examples/profile.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Profile</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/examples/e-commerce.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>E-commerce</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/examples/projects.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Projects</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/examples/project-add.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Project Add</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/examples/project-edit.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Project Edit</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/examples/project-detail.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Project Detail</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/examples/contacts.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Contacts</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/examples/faq.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>FAQ</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/examples/contact-us.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Contact us</p>
-              </a>
-            </li>
-          </ul>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
@@ -430,24 +188,6 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/examples/login.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Login v1</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/register.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Register v1</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/forgot-password.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Forgot Password v1</p>
-                  </a>
-                </li>
-                <li class="nav-item">
                   <a href="pages/examples/recover-password.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Recover Password v1</p>
@@ -455,215 +195,70 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>
-                  Login & Register v2
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="pages/examples/login-v2.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Login v2</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/register-v2.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Register v2</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/forgot-password-v2.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Forgot Password v2</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/recover-password-v2.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Recover Password v2</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="pages/examples/lockscreen.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Lockscreen</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/examples/legacy-user-menu.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Legacy User Menu</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/examples/language-menu.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Language Menu</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/examples/404.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Error 404</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/examples/500.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Error 500</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/examples/pace.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Pace</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/examples/blank.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Blank Page</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="starter.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Starter Page</p>
-              </a>
-            </li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-search"></i>
-            <p>
-              Search
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="pages/search/simple.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Simple Search</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/search/enhanced.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Enhanced</p>
-              </a>
-            </li>
-          </ul>
-        </li>
+
         <li class="nav-header">MISCELLANEOUS</li>
         <li class="nav-item">
-          <a href="iframe.html" class="nav-link">
+          <a href="{% url 'ecomapp:home' %}" class="nav-link">
             <i class="nav-icon fas fa-ellipsis-h"></i>
-            <p>Tabbed IFrame Plugin</p>
+            <p>store 商店</p>
           </a>
         </li>
+<!-- new add 11242021 -->
         <li class="nav-item">
-          <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-            <i class="nav-icon fas fa-file"></i>
-            <p>Documentation</p>
+          <a class="nav-link" href="#">
+            <span data-feather="home"></span>
+            Dashboard 儀表板<span class="sr-only">(current 當前)</span>
           </a>
         </li>
-        <li class="nav-header">MULTI LEVEL EXAMPLE</li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="fas fa-circle nav-icon"></i>
-            <p>Level 1</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-circle"></i>
-            <p>
-              下游廠商
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="{% url 'mass_mer:MassMerList' %}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>攤商</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{% url 'mass_mer:FoodVendorList' %}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>店面</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{% url 'mass_mer:StorefrontList' %}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>量販店</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{% url 'mass_mer:RetailFactoryList' %}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>零售商(工廠)</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{% url 'mass_mer:OtherList' %}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>其他</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>
-                  Level 1
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-dot-circle nav-icon"></i>
-                    <p>Level 2</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
+<!-- new add 11242021 -->
+        <li class="nav-header">SUMMARY</li>
+<!--        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">-->
+<!--          <span>Dashboard 儀表板</span>-->
+<!--&lt;!&ndash;<span>SUMMARY</span>&ndash;&gt;-->
+<!--          <a-->
+<!--            class="d-flex align-items-center text-muted"-->
+<!--            href="#"-->
+<!--            aria-label="Add a new report">-->
+<!--            <span data-feather="plus-circle"></span>-->
+<!--          </a>-->
+<!--        </h6>-->
+
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="fas fa-circle nav-icon"></i>
             <p>Level 1</p>
           </a>
         </li>
+
+        <li class="nav-item">
+          <a href="{% url 'expenses:expenses' %}" class="nav-link">
+            <i class="fas fa-circle nav-icon"></i>
+            <p>Expenses 花費</p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="{% url 'userpreferences:preferences' %}" class="nav-link">
+            <i class="fas fa-circle nav-icon"></i>
+            <p>preferences 喜好</p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="{% url 'income:income' %}" class="nav-link">
+            <i class="fas fa-circle nav-icon"></i>
+            <p>Income 收入</p>
+          </a>
+        </li>
+
+
         <li class="nav-header">LABELS</li>
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon far fa-circle text-danger"></i>
             <p class="text">Important</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon far fa-circle text-warning"></i>
-            <p>Warning</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon far fa-circle text-info"></i>
-            <p>Informational</p>
           </a>
         </li>
       </ul>

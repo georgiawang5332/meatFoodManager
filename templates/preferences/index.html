@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% block content %}
+<div class="content-wrapper" style="min-height: 244.792px;">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Home Page</h1>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+
+
+
+<div class="container mt-3">
+  <h5>Preferred Currency 首選貨幣</h5>
+  {% include 'partials/_messages.html' %}
+  <form action="{% url 'userpreferences:preferences' %}" method="post">
+    {% csrf_token %}
+    <div class="input-group">
+      <select name="currency" class="custom-select" id="inputGroupSelect04">
+        {% if user_preferences.currency %}
+        <option name="currency" selected value="{{ user_preferences.currency }}">
+          {{ user_preferences.currency }}
+        </option>
+        {% endif %} {% for currency in currencies %}
+
+        <option name="currency" value="{{ currency.name }} - {{ currency.value }}"
+        >{{ currency.name }} - {{ currency.value }}
+        </option>
+
+        {% endfor %}
+      </select>
+      <div class="input-group-append">
+        <input class="btn btn-outline-secondary" type="submit" value="Save"/>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="container mt-3">
+  設定頁面
+</div>
+
+<hr/>
+
+
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content -->
+</div>
+
+{% endblock %}

@@ -2,7 +2,13 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
+
 # Create your models here.
+# class MidstreamManager(models.Manager):
+#   def get_queryset(self):
+#     return super(MidstreamManager, self).get_queryset().filter(company_Name='')
+
+
 # 1. 公司
 class Midstream(models.Model):  # 中游商
   # Registration_Status_CHOICES = (
@@ -56,6 +62,14 @@ class Midstream(models.Model):  # 中游商
 
   class Meta:
     ordering = ['-create_date', '-last_modified']
+    # Latest by ascending order_date.# 最新按升序 order_date。
+    # get_latest_by = "order_date"
+
+    # Latest by priority descending, order_date ascending.# 最新的優先級降序，order_date 升序。
+    get_latest_by = ['-priority', 'order_date']
+
+
+# objects = MidstreamManager()
 
 
 # 2. 負責人principal

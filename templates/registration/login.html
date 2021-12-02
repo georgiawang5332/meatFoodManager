@@ -25,16 +25,18 @@
   <div class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-6">
-
+        <div class="col-lg-4">
           <div class="card card-primary card-outline">
             <div class="card-body">
               <h5 class="card-title"></h5>
 
               <p class="card-text">
-                尚未註冊，請於右上角點擊申請。
-              </p>
-              {% if form.errors %}
+                {% if user.is_authenticated %}
+                <!--                  <p>成功登入 :7878/accounts/login/ </p>-->
+                {% else %}
+
+
+                {% if form.errors %}
               <p>Your username and password didn't match. Please try again.</p>
               {% endif %}
 
@@ -42,7 +44,9 @@
               {% if user.is_authenticated %}
               <p>Your account doesn't have access to this page. To proceed,
                 please login with an account that has access.</p>
+
               {% else %}
+
               <p>Please login to see this page.</p>
               {% endif %}
               {% endif %}
@@ -52,22 +56,39 @@
                 <table>
                   <tr>
                     <td>{{ form.username.label_tag }}</td>
-                    <td>{{ form.username }}</td>
+                    <td>
+                      <input
+                        type="text"
+                        name="username"
+                        placeholder="username"
+                        id="usernameField"
+                        value="{{ fieldValues.username }}"
+                        class="form-control form-control-sm float-left"/>
+                    </td>
                   </tr>
                   <tr>
                     <td>{{ form.password.label_tag }}</td>
-                    <td>{{ form.password }}</td>
+                    <td>
+                      <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        class="form-control form-control-sm"
+                        id="passwordField"/>
+                    </td>
                   </tr>
                 </table>
-
                 <input type="submit" value="login">
                 <input type="hidden" name="next" value="{{ next }}">
               </form>
 
               {# Assumes you setup the password_reset view in your URLconf #}
+              <p><small class="float-right py-3 showPasswordToggle">SHOW</small></p>
               <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+              {% endif %}
+              </p><!-- /.card-text -->
 
-            </div>
+            </div><!-- /.card-body -->
           </div><!-- /.card -->
         </div>
         <!-- /.col-md-6 -->

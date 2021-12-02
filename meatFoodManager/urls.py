@@ -1,5 +1,4 @@
 """meatFoodManager URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
 Examples:
@@ -20,11 +19,17 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+  path('authentication/', include('authentication.urls')),
+  path('userincome/', include('userincome.urls')),
+  path('userpreferences/', include('userpreferences.urls')),
+  path('expenses/', include('expenses.urls')),
+  path('ecomapp/', include('ecomapp.urls')),
+  # path('store/', include('store.urls')),
   path('mass_mer/', include('mass_mer.urls')),
-  path('home/', include('home.urls')),
   path('midstream/', include('midstream.urls')),
+  path('', include('home.urls')),
   path('admin/', admin.site.urls),
-]
+  ]
 
 # ithome django 裡面有介紹 account 如何使用
 # Add Django site authentication urls (for login, logout, password management)

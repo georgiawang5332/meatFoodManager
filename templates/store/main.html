@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <title>肉品網站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!--  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">-->
+  <link rel="stylesheet" href="{% static 'dist/css/store/css/main.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+
+
+  <script type="text/javascript">
+    var user = '{{request.user}}'
+
+    function getToken(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+
+    var csrftoken = getToken('csrftoken')
+
+    function getCookie(name) {
+      // Split cookie string and get all individual name=value pairs in an array
+      var cookieArr = document.cookie.split(";");
+
+      // Loop through the array elements
+      for (var i = 0; i < cookieArr.length; i++) {
+        var cookiePair = cookieArr[i].split("=");
+
+        /* Removing whitespace at the beginning of the cookie name
+        and compare it with the given string */
+        if (name == cookiePair[0].trim()) {
+          // Decode the cookie value and return
+          return decodeURIComponent(cookiePair[1]);
+        }
+      }
+
+      // Return null if not found
+      return null;
+    }
+
+    var cart = JSON.parse(getCookie('cart'))
+
+    if (cart == undefined) {
+      cart = {}
+      console.log('Cart Created!', cart)
+      document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+    }
+    console.log('Cart:', cart)
+
+  </script>
+
+</head>
+<body>
+<!--1-->
+<nav class="navbar navbar-expand-lg navbar-white navbar-light">
+    <ul class="navbar-nav ml-auto">
+        <div class="form-inline my-2 my-lg-0">
+      <a href="#" class="btn btn-warning">Login</a>
+
+      <a href="{% url 'store:cart' %}">
+        <img id="cart-icon" src="{% static 'images/cart.png' %}">
+      </a>
+      <p id="cart-total">{{cartItems}}</p>
+    </div>
+
+    <li class="nav-item">
+      <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="{% url 'store:cart' %}" role="button">
+        <i class="fas fa-cart-plus fa-1x" aria-hidden="true"></i>
+        <span class="badge badge-warning navbar-badge">{{cartItems}}</span>
+      </a>
+    </li>
+  </ul>
+<!--因為登出登入 搞得她登入後購物車無法加總 所以要換一套公式去進行 add to cart了 糟糕QWQ-->
+
+  <!-- Left navbar links -->
+  <ul class="navbar-nav">
+    <li class="nav-item d-none d-sm-inline-block">
+      <a href="/" class="nav-link">Home</a>
+    </li>
+    <li class="nav-item d-none d-sm-inline-block">
+      <a href="/contact/" class="nav-link">Contact</a>
+    </li>
+  </ul>
+
+  <!-- Right navbar links -->
+  <ul class="navbar-nav ml-auto">
+
+    {% if user.is_authenticated %}
+
+    <!-- Navbar Search -->
+    <li class="nav-item">
+      <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </a>
+      <div class="navbar-search-block">
+        <form class="form-inline">
+          <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar" type="search" placeholder="Search Posts" aria-label="Search"
+                   name="q" value="">
+            <div class="input-group-append">
+              <button class="btn btn-navbar" type="submit">
+                <i class="fas fa-search" aria-hidden="true"></i>
+              </button>
+              <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                <i class="fas fa-times" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+        <i class="fas fa-th-large" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="{% url 'store:cart' %}" role="button">
+        <i class="fas fa-cart-plus fa-1x" aria-hidden="true"></i>
+        <span class="badge badge-warning navbar-badge">{{cartItems}}</span>
+      </a>
+    </li>
+    <!-- Menu BTN -->
+    <li class="user-footer">
+      <div class="row align-items-center">
+        <div class="col text-center">
+          <a href="{% url 'logout' %}?next={{ request.path }}" class="btn btn-default btn-flat">Logout</a>
+        </div>
+      </div>
+      <!-- /.row -->
+    </li>
+    {% else %}
+    <li class="nav-item">
+      <a class="nav-link btn btn-default btn-flat" href="{% url 'login' %}?next={{ request.path }}">
+        <i class="fa fa-sign-in" aria-hidden="true">&nbsp;登入</i>
+      </a>
+    </li>
+    &nbsp;
+    <li class="nav-item">
+      <a class="nav-link btn btn-default btn-flat" href="{% url 'home:register' %}?next={{ request.path }}">
+        <i class="fa fa-sign-out" aria-hidden="true">&nbsp;註冊</i>
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+
+</nav>
+
+
+<div class="container">
+  <br>
+  {% block content %}
+
+
+  {% endblock content %}
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+<!--<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>-->
+<script type="text/javascript" src="{% static 'dist/css/store/js/cart.js' %}"></script>
+
+<!-- Font Awesome CDN -->
+<script src="https://kit.fontawesome.com/55604d6d56.js" crossorigin="anonymous"></script>
+</body>
+</html>

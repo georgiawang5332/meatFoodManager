@@ -4,12 +4,27 @@ from django.shortcuts import render, redirect
 
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 
-from home.models import *
 from home.forms import *
+from home.models import *
+from midstream.models import *
 
 from django.contrib.auth.decorators import login_required
+
+
 # Create your views here.
-@login_required
+def list(request):
+  # queryset_list = Midstream.objects.all()  # .order_by('-id')
+  if request.user.is_staff or request.user.is_superuser:
+    queryset_list = Midstream.objects.all()
+
+  context = {
+    'obj_list': queryset_list,
+    'title': '中游公司',
+  }
+  return render(request, 'midstream/midstream_list.html', context)
+  # return HttpResponse('<h1>list</h1>')
+
+
 def changePassword(request):
   if request.method == "POST":
     form = PasswordChangeForm(data=request.POST, user=request.user)
@@ -24,7 +39,6 @@ def changePassword(request):
     return render(request, 'home/home.html', context)
 
 
-@login_required
 def register(request):
   if request.method == 'POST':
     form = RegisterForm(request.POST)
@@ -48,8 +62,16 @@ def profile(request):
   return render(request, 'home/profile.html', context)
   # return HttpResponse('<h1>profile my info</h1>')
 
-@login_required()
+
+@login_required
 def home(request):
+  # current_event = Midstream.objects.lastest()
+  # Entry.objects.latest('pub_date', '-expire_date')  #您還可以根據多個字段選擇最新的。例如，要在兩個條目相同時選擇Entry最早expire_date的 pub_date：
+
+  current_event = Midstream.objects.order_by('-pk')[:3] #https://www.itread01.com/content/1549962732.html
+
+  if request.user.is_staff or request.user.is_superuser:
+    queryset_list = Midstream.objects.all()
   form = HomeForm(request.POST)
   if form.is_valid():
     post = form.save(commit=False)
@@ -60,11 +82,12 @@ def home(request):
     form = HomeForm()
     return redirect('home:home')
   context = {
+    'obj_list': queryset_list,
+    'title': '中游公司',
     'form': form,
-    'title': 'home',
+    'current_event': current_event,
   }
   return render(request, 'home/home.html', context)
-  # return HttpResponse('<h1>home</h1>')
 
 
 def contact(request):

@@ -19,6 +19,7 @@ urlpatterns = [
 
   # List
   path('MassMerList/', views.MassMerList, name='MassMerList'),                    # http://127.0.0.1:7878/mass_mer/list
+  # path('MassMerpersonList/', views.MassMerpersonList, name='MassMerpersonList'),                    # http://127.0.0.1:7878/mass_mer/list
   path('FoodVendorList/', views.FoodVendorList, name='FoodVendorList'),           # http://127.0.0.1:7878/mass_mer/list
   path('StorefrontList/', views.StorefrontList, name='StorefrontList'),           # http://127.0.0.1:7878/mass_mer/list
   path('RetailFactoryList/', views.RetailFactoryList, name='RetailFactoryList'),  # http://127.0.0.1:7878/mass_mer/list

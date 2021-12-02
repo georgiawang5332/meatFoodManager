@@ -26,3 +26,12 @@ html, body, ul, li, a {
 }
 /*sidebar 已上線 end*/
 
+/*login toggle(hide and show)*/
+.showPasswordToggle {
+  cursor: pointer;
+  transition: all;
+}
+
+.showPasswordToggle:hover {
+  transform: scale(1.2);
+}

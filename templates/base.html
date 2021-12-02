@@ -11,8 +11,6 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
-  <!-- Font Awesome CDN -->
-  <script src="https://kit.fontawesome.com/55604d6d56.js" crossorigin="anonymous"></script>
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
@@ -29,6 +27,14 @@
   <link rel="stylesheet" href="{% static 'plugins/daterangepicker/daterangepicker.css' %}">
   <!-- summernote -->
   <link rel="stylesheet" href="{% static 'plugins/summernote/summernote-bs4.min.css' %}">
+
+  <!--  all the css style -->
+  <link rel="stylesheet" href="{% static '/dist/css/expenses/style.css' %}">
+  <link rel="stylesheet" href="{% static 'dist/css/style.css' %}">
+  <!--  mess_mer css style -->
+  <!--  midstream css style -->
+  <!--  home css style -->
+  <!--  store css style -->
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -74,6 +80,8 @@
 </div>
 <!-- ./wrapper -->
 
+<!-- 金流部分 - 花費 收入等 -->
+<script src="{% static 'dist/js/expense/register.js' %}"></script>
 <!-- jQuery -->
 <script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -108,5 +116,8 @@
 <!--<script src="{% static 'dist/js/demo.js' %}"></script> 這可以跳出視窗功能-->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{% static 'dist/js/pages/dashboard.js' %}"></script>
+
+<!-- Font Awesome CDN -->
+<script src="https://kit.fontawesome.com/55604d6d56.js" crossorigin="anonymous"></script>
 </body>
 </html>

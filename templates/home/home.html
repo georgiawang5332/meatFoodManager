@@ -1,5 +1,92 @@
 {% extends "base.html" %}
 
+<style>
+  .product-results__paging-area:last-of-type {
+    margin-bottom: 3.5rem;
+  }
+
+  .product-results__paging-area:last-of-type {
+    margin-bottom: 3.5rem;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .product-results__paging-area .pagination-buttons {
+      display: inline-block;
+    }
+
+    .product-results__paging-area .pagination-buttons {
+      text-align: center;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .product-results__paging-area .pagination-buttons #view-more {
+      display: inline-block;
+      width: auto;
+      margin: 1em 2em;
+      margin-top: 0;
+    }
+
+    .product-results__paging-area .pagination-buttons #view-more {
+      display: block;
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    .button, .order-help-container__button, .order-help-container__cta, button:not(.cta), input[type=button] {
+      width: auto;
+    }
+
+    .button, .order-help-container__button, .order-help-container__cta, button:not(.cta), input[type=button] {
+      transition: background-color .3s ease;
+      white-space: nowrap;
+      cursor: pointer;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: transparent;
+      color: #000;
+      border: 1px solid #000;
+      text-align: center;
+      display: inline-block;
+      margin: 0;
+      padding: 10px 25px;
+      line-height: 1;
+      width: 100%;
+      max-width: 100%;
+      text-decoration: none;
+    }
+  }
+
+  .product-results__paging-area .pagination-buttons #view-all {
+    display: inline-block;
+    margin: 1em auto;
+  }
+
+  a.cta, button.cta {
+    transition: background-color .3s ease;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    padding-left: 0.16em;
+    padding-right: 0.16em;
+    line-height: 1.25;
+  }
+
+  .button, .navitem__button, .order-help-container__button, .order-help-container__cta, .text--label-strong, a.cta, button.cta, button:not(.cta), input[type=button] {
+    font-family: Gotham, Oxygen, 微軟正黑體, "Microsoft JhengHei", "儷黑 Pro", "LiHei Pro", sans-serif;
+    letter-spacing: .07500000000000001rem;
+    font-size: 1rem;
+    line-height: 1.17;
+    letter-spacing: .075em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+</style>
+
 {% block content %}
 {% if user.is_authenticated %}
 <div class="content-wrapper" style="min-height: 244.792px;">
@@ -19,8 +106,8 @@
   <div class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-6">
 
+        <div class="col-lg-12">
           <div class="card card-primary card-outline">
             <div class="card-body">
               <h5 class="card-title"></h5>
@@ -32,20 +119,70 @@
                 {% csrf_token %}
                 {{form.as_p}}
                 <button type="submit">送出</button>
-<!--                <h2>輸出: {{text}}</h2>-->
+                <!--                <h2>輸出: {{text}}</h2>-->
               </form>
 
-<!--              {% for profile in profiles %}-->
+              <!--              {% for profile in profiles %}-->
               <h1>{{ user }}</h1>
               <p>{{user.city}}</p>
-<!--              <p>Posted by {{ post.user.get_full_name }} on {{ post.created }}</p>-->
-<!--              {% endfor %}-->
+              <!--              <p>Posted by {{ post.user.get_full_name }} on {{ post.created }}</p>-->
+              <!--              {% endfor %}-->
 
 
             </div>
           </div><!-- /.card -->
         </div>
         <!-- /.col-md-6 -->
+
+
+        <div class="col-lg-12">
+          <h3>最新消息</h3>
+          <div class="card-deck">
+
+            {% for current in obj_list %}
+            <div class="card">
+              <img class="card-img-top" src="..." alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <!--                <h5 class="card-title">{{obj_list}}</h5>-->
+                <h5 class="card-title">{{id}}</h5>
+
+                <p class="card-text">{{current.company_principal}}</p>
+                <p class="card-text">{{current.uniform_numbers}}</p>
+
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                  content. This content is a little bit longer.</p>
+
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </div>
+            </div>
+            {% endfor %}
+            <br>
+            <div>
+              <p class="card-text">所有項目: {{obj_list}}</p><br>
+              <p class="card-text">最新發布: {{current_event}}</p>
+            </div>
+
+          </div>
+          <!--          -->
+          <div class="product-results__paging-area">
+            <div class="pagination-buttons">
+              <button type="button" class="button" id="view-more"
+                      data-grid-url="https://www.lauramercier.com.tw/暢銷商品/查看全部暢銷商品/?start=12&amp;sz=12&amp;format=page-element">
+                瀏覽更多
+              </button>
+              <a
+                href="https://www.lauramercier.com.tw/%E6%9A%A2%E9%8A%B7%E5%95%86%E5%93%81/%E6%9F%A5%E7%9C%8B%E5%85%A8%E9%83%A8%E6%9A%A2%E9%8A%B7%E5%95%86%E5%93%81/?sz=24&amp;viewall=true"
+                class="cta" id="view-all">
+                瀏覽全部
+              </a>
+            </div>
+
+          </div>
+        </div>
+
 
       </div>
       <!-- /.row -->
@@ -56,10 +193,9 @@
 {% else %}
 
 <div class="content-wrapper text-center" style="padding: 200px">
-
   <div class="tab-content">
     <div class="tab-empty" style="height: 453px;">
-      <h2 class="display-4">No tab selected!</h2>
+      <h2 class="display-4">No tab selected!沒有選擇標籤！</h2>
     </div>
   </div>
 </div>

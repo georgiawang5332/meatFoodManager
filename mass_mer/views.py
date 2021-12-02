@@ -123,7 +123,7 @@ def MassMerPersonUpdate(request, id=None):
     print(form.cleaned_data)
     instance.save()
     # message success
-    messages.success(request, "the xxx Record is Updated successfully... !")
+    messages.success(request, "恭喜 " + instance.mass_mer_principal + " 更新成功!")
   else:
     messages.error(request, "Not successfully Created")
   return render(request, "mass_mer/massmerEdit.html", {"crudst": massmerpersonUpdate, 'form': form})
@@ -192,6 +192,7 @@ def StorefrontList(request):  # 店面
   # }
 
   # return render(request, "mass_mer/index.html", context)
+  return HttpResponse('<h1>Store Front List</h1>')
 
 
 def RetailFactoryList(request):  # 零售業(工廠)
