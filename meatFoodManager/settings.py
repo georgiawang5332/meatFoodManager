@@ -7,6 +7,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -147,7 +148,6 @@ LOGIN_URL = '/login/'
 LOGOUT_URL = '/logout/'
 LOGIN_REDIRECT_URL = '/home/'
 
-
 # SMTP Configuration :: https://gist.github.com/mitchtabian/6b6a650b4b809ca2f40295e5fe7a40e7
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'  #SMTP伺服器
@@ -156,3 +156,7 @@ EMAIL_USE_TLS = True  #開啟TLS(傳輸層安全性)
 EMAIL_HOST_USER = 'georgiawang5332@gmail.com'  #寄件者電子郵件
 EMAIL_HOST_PASSWORD = 'uusnymglbxkyyqfy'  #Gmail應用程式的密碼
 DEFAULT_FROM_EMAIL = '楊玥玥 團隊 <georgiawang5332@gmail.com>'
+
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
