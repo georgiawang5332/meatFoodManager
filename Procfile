@@ -1,1 +1,1 @@
-web: gunicorn meatFoodManager.wsgi
+web gunicorn app:app
