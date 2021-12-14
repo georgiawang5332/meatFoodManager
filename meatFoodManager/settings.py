@@ -7,7 +7,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
-import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -157,6 +156,3 @@ EMAIL_HOST_USER = 'georgiawang5332@gmail.com'  #寄件者電子郵件
 EMAIL_HOST_PASSWORD = 'uusnymglbxkyyqfy'  #Gmail應用程式的密碼
 DEFAULT_FROM_EMAIL = '楊玥玥 團隊 <georgiawang5332@gmail.com>'
 
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())
